@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: test_dsh
+    image: wildfly
+    volumes:
+      - /dockerize_dash_app:/app
+    ports:
+      - "8283:8283"
+    command: waitress-serve --port=8283 app:app.server
